@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <title><%= title %></title>
+        <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- our css -->
+        <link rel="stylesheet" type="text/css" href="assets\css\home.css">
+    </head>
+
+    <body class="theme">
+        <!-- the heading of the application -->
+        <div class="heading-bar">
+            <div class="heading">
+                <h1>TO DO App</h1>
+            </div>
+
+            <!-- innovation element- changes theme of the applicaton -->
+            <div id="toggle-bar">
+                <div id="box">
+                    <div id="circle">
+                    </div>
+                </div> 
+                <p class="toggle-text"> change theme </p> 
+            </div>
+        </div>
+
+        <hr class="horizontal-line">
+
+        <!-- form where all the information regarding the task is being taken -->
+        <form action="/add-task" method="POST">
+
+            <div class="desc">
+                <!-- description -->
+                <h5>DESCRIPTION</h5>
+                <input class ="input-text" type="text" name="task" placeholder="What do you need to do?" required>
+            </div>
+
+            <hr class="horizontal-line">
+
+            <div class="cat-date">
+
+                <div class="category">
+                    <h5>CATEGORY</h5>
+                    <!-- category of the task -->
+                    <!-- dropdown menu here  -->
+                    <select name="category" class="input-text" id="category" required>
+                        <option selected>Personal</option>
+                        <option> Work </option>
+                        <option> School </option>
+                        <option> Cleaning </option>
+                        <option> Other </option>
+                    </select>
+                </div>
+
+                <div class="due-date">
+                    <!-- due date of the task -->
+                    <!-- handle for no new due date given i.e. put no deadline there -->
+                    <h5>DUE DATE</h5>
+                    <input class="input-text" type="date" name="date" placeholder="dd/mm/yyyy">
+                </div>
+
+            </div>
+
+            <hr class="horizontal-line" style="margin-bottom:30px;">
+
+            <!-- add task button -->
+            <div class="buttons">
+                <button type="submit" class="btn btn-dark btn-lg add-align"> 
+                    <i class="fas fa-plus icon"></i>
+                    Add Task
+                </button>
+    
+            </div>
+
+        </form>
+
+        <hr class="horizontal-line">
+
+        <!-- checklist of all the tasks -->
+        <!-- handle the case of no due date -->
+        
+        <div class="tasks-list">
+
+            <!-- delete task button inside the form to send all data when the button is clicked -->
+            <form action="/delete-task" method="GET">
+                <button type="submit" class="btn btn-danger btn-lg" id="delete-btn">
+                    <i class="fas fa-window-close icon"></i> 
+                    Delete Task
+                </button>
+        
+                <!-- loop to print all the tasks -->
+                <% for(let i of tasks) { %>
+                    <div class="task">
+                
+                        <!-- div for the tasks rows -->
+                        <div class="text-left-box">
+                            <!-- individual task checkbox -->
+                            <input type="checkbox" name="id" value="<%= i._id %>" class="task-list">
+                            <label for="strike" class="strikethrough">
+
+                                <span class="task-text">
+                                    &nbsp; <%= i.task %> <br>
+                                </span>
+
+                                <span class="date-text">
+                                    &nbsp; &nbsp; &nbsp;<i class="fas fa-calendar-alt calender"></i> &nbsp;
+                                    <!-- conditions to print "No deadline" if the date column is left empty else print the date -->
+                                    <% if (i.date == null){ %>
+                                        <%- 'No Deadline'  %>
+                                    <% } else{ %>
+                                        <%= i.date %>
+                                    <% } %>
+                                    <br>
+                                </span>
+
+                            </label>
+                        </div>
+
+                        <!-- printing the category with the block having customised background colors according to the category -->
+                        <div class="category-text <% if(i.category == 'School'){ %> 
+                            School <% } else if (i.category =='Personal'){ %> 
+                            Personal <% } else if (i.category =='Cleaning'){ %> 
+                            Cleaning <% } else if (i.category =='Work'){ %>
+                            Work <% } else{ %> 
+                            Other <% } %>" >
+                                <%= i.category %>
+                        </div>
+            
+                    </div>
+
+                    <hr class="horizontal-line">
+                    <!-- <div class="delete-button">
+                            <a href="/delete-task/?id=<%= i._id %>" id="delete-url">
+                            </a>
+                        </div> -->
+
+                <% } %>
+
+            </form>
+
+        </div>
+
+       
+
+
+        <!-- jquery and the js file tags -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="/assets/js/home.js"></script>
+
+    </body>
+</html>
