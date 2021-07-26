@@ -1,0 +1,265 @@
+body{
+    font-family: sans-serif;
+    color : darkslategrey;
+}
+
+
+/* css for horizontal lines */
+.horizontal-line{
+    padding : 0px;
+    margin : 0px 20px;
+    /* background-color : orange; */
+}
+
+/* to-do heading bar */
+.heading-bar{
+    display: flex;
+    width : 100%;
+    height : 13%;
+    /* border : 2px solid red; */
+}
+
+/* to-do heading */
+.heading{
+    width : 80%;
+    height : 100%;
+    padding-top : 25px;
+    text-align: center;
+    font-size : 1.7rem;
+    color: darkslategrey;
+    /* border : 2px solid green; */
+}
+
+/* toggle bar css */
+#toggle-bar{
+    width : 15%;
+    height : 65%;
+    text-align: center;
+    padding-left : 50px;
+    padding-top : 50px;
+    /* border : 2px solid green; */
+}
+
+/* the white box of toggle bar */
+#box{
+    display : flex;
+    background-color : white;
+    border : 1px solid darkslategrey;
+    width : 50px;
+    height : 15px;
+    align-items : center;
+    border-radius : 10px;
+}
+
+/* the circle inside the toggle bar */
+#circle{
+    background-color : darkslategrey;
+    border-radius : 50%;
+    width : 13px;
+    height : 13px;
+    border : 1px solid white;
+}
+
+/* toggle text (change theme) */
+.toggle-text{
+    color : darkslategrey;
+    font-size : 12px;
+    text-align: left;
+}
+
+
+/* form description css */
+.desc{
+    width : 100%;
+    height: 15%;
+    padding-left : 50px;
+    vertical-align: middle;
+}
+
+/* form category and due date css */
+.cat-date{
+    display : flex;
+    width : 100%;
+    height : 15%;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding-left : 50px;
+    /* border : 2px solid red; */
+}
+
+/* form category section */
+.category{
+    width : 50%;
+    height : 100%;
+    border-right : 1px solid lightgrey;
+    /* border : 2px solid green; */
+}
+
+/* form due date section */
+.due-date{
+    width : 50%;
+    height : 100%;
+    padding-left : 10px;
+    /* border : 2px solid green; */
+}
+
+/* all the headings of category, description and due date */
+h5{
+    padding-left : 20px;
+    padding-top : 8px;
+    font-weight: bold;
+}
+
+/* form input text */
+.input-text{
+    border : 0px;
+    font-size : 1rem;
+    color : grey;
+    padding : 5px 60px 5px 20px;
+
+}
+
+/* form input hover css */
+.input-text:hover{
+    box-shadow: 0px 0px 5px lightgrey;
+}
+
+
+/* add task button */
+.buttons{
+    display : flex;
+    justify-content: center;
+    padding-left : 50px;
+    padding-bottom : 10px;
+    /* border : 2px solid red; */
+}
+
+/* add task button  */
+.add-align{
+    border-radius: 0px;
+    margin : 0px 5px;
+    width : 15%;
+    /* border : 2px solid green;  */
+    align-content:space-between;
+    overflow : hidden;
+}
+
+.add-align:hover{
+    box-shadow: 0px 0px 5px grey;
+    opacity : 80%;
+}
+
+/* delete button */
+#delete-btn{
+    border-radius: 0px;
+    margin : 0px 5px;
+    margin-top : -73.5px;
+    margin-left : 28%;
+    width : 15%;
+    overflow : hidden;
+}
+
+/* plus and cross icons for the buttons */
+.icon{
+    padding-right : 25px;
+    padding-left : 0px;
+}
+
+/* printing tasks' section task css */
+.task{
+    display : flex;
+    padding : 5px 0px 5px 50px;
+    /* border : 2px solid red; */
+}
+
+/* task and due date */
+.text-left-box{
+    width : 60%;
+    height : 100%;
+    /* border : 2px solid green; */
+}
+
+/* right side category */
+.category-text{
+    height : 100%;
+    /* border : 2px solid green; */
+    margin-top : 8px;
+    text-align: center;
+    padding : 3px 15px;
+}
+
+/* text css */
+.task-text{
+    font-size : 1.2rem;
+}
+
+/* calender */
+.calender{
+    color : grey;
+}
+
+/* date text */
+.date-text{
+    font-size: 0.9rem;
+    color: grey;
+}
+
+/* category text */
+.category-text{
+    color : white;
+    background-color: darkgoldenrod;
+}
+
+/* category different colour classes */
+.School{
+    background-color: darkgoldenrod;
+}
+
+.Personal{
+    background-color: darkblue;
+}
+
+.Work{
+    background-color: violet;
+}
+
+.Cleaning{
+    background-color: darkgreen;
+}
+
+.Other{
+    background-color: maroon;
+}
+
+/* css for strike through of items to be deleted */
+input[type=checkbox]:checked + label.strikethrough{
+    text-decoration: line-through;
+}
+
+label{
+    display: inline;
+}
+
+/* toggle classes */
+.grey{
+    background-color: grey;
+}
+
+.lightgrey-text{
+    color : lightgrey;
+}
+
+.theme{
+    display : inline-block;
+    background-color : white;
+    width: 100vw;
+    height : 100vh;
+}
+
+.black-bg{
+    background-color: darkslategrey;
+}
+
+.white-text{
+    color : beige;
+}
